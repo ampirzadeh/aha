@@ -1,0 +1,20 @@
+doctype html
+html(lang="fa")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *")
+        link(rel="prefetch" href=`https://aha-backend.staging.shegerfist.com/images/a${imageIndex}.jpg` as="image" crossorigin="anonymous")
+        link(rel="stylesheet" href="/fonts.css")
+        link(rel="stylesheet" href="/style.css")
+        title= title
+    body.font-iran.p-8.pb-0.m-auto(class="sm:px-20 max-w-xl")
+        h1#title.text-5xl.font-extrabold.text-center.mb-6 این چیه؟
+        img#riddle-img.rounded-lg.w-full.object-cover.h-auto.mb-2(src=`https://aha-backend.staging.shegerfist.com/images/q${imageIndex}.jpg`, alt="این چیه؟" crossorigin="anonymous")
+        button#toggle-image.font-medium.rounded-lg.px-5.mr-2.mb-2.w-full.transition-colors.duration-300.text-white.bg-blue-700(type="button" class="focus:outline-none hover:bg-blue-800 py-2") نشان دادن جواب
+        form(action="/submit" method="post")#difficulty.flex.justify-around.items-center.hidden.gap-2
+            input#question.hidden(type="number" name="question" value=imageIndex)
+            button#easy.transition-colors.duration-300.text-white.font-medium.rounded-full.px-5.text-center.mr-2.mb-2.bg-green-700.w-full(name="difficulty" type="submit" value=0 class="hover:bg-green-800 focus:outline-none py-2.5") راحت بود
+            button#hard.transition-colors.duration-300.text-white.font-medium.rounded-full.px-5.text-center.mr-2.mb-2.bg-red-700.w-full(name="difficulty" type="submit" value=1 class="hover:bg-red-800 focus:outline-none py-2.5") سخت بود
+    script(src="/main.js")

@@ -1,0 +1,44 @@
+{
+  "name": "sheikh-attar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run css:build && ts-node index.ts",
+    "dev": "concurrently \"npm:css:watch\" \"nodemon index.ts\" -r",
+    "prettify": "prettier --ignore-path .gitignore -w .",
+    "setup": "ts-node -r dotenv/config setup.ts",
+    "css:build": "tailwindcss -i ./input.css -o ./public/style.css --minify",
+    "css:watch": "tailwindcss -i ./input.css -o ./public/style.css --watch"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
+    "@types/http-errors": "^1.8.2",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.0.0",
+    "@types/pug": "^2.0.6",
+    "concurrently": "^7.2.2",
+    "heroku": "^7.60.2",
+    "nodemon": "^2.0.16",
+    "tailwindcss-debug-screens": "^2.2.1",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "form-data": "^4.0.0",
+    "helmet": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.4.0",
+    "morgan": "^1.10.0",
+    "prettier": "^2.7.1",
+    "pug": "^3.0.2",
+    "tailwindcss": "^3.1.4"
+  }
+}
