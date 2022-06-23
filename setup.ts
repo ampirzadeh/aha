@@ -6,7 +6,7 @@ import { readdir } from 'fs/promises'
 import { resolve } from 'path'
 import { DB_URL } from './config'
 import { MongooseLog, SetupLog } from './bug'
-import riddle, { IRiddle } from './models/difficulty'
+import riddle, { IDifficulty } from './models/difficulty'
 
 const nOfImages = 2
 
@@ -33,20 +33,20 @@ const setup = async () => {
       }
     )
 
-    const dbQuery: IRiddle[] = []
+    const dbQuery: IDifficulty[] = []
 
     Object.keys(result.data).map((fileName) => {
       dbQuery[+fileName.slice(1, fileName.length - 4)] =
         fileName.charAt(0) === 'a'
           ? {
               ...dbQuery[+fileName.slice(1, fileName.length - 4)],
-              answer: result.data[fileName],
-              riddleNumber: +fileName.slice(1, fileName.length - 4),
+              // answer: result.data[fileName],
+              // riddleNumber: +fileName.slice(1, fileName.length - 4),
             }
           : {
               ...dbQuery[+fileName.slice(1, fileName.length - 4)],
               question: result.data[fileName],
-              riddleNumber: +fileName.slice(1, fileName.length - 4),
+              // riddleNumber: +fileName.slice(1, fileName.length - 4),
             }
     })
 

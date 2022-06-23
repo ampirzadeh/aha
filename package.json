@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "npm run css:build && ts-node index.ts",
+    "start": "npm run css:build && tsc && node build/index.js",
     "dev": "concurrently \"npm:css:watch\" \"nodemon index.ts\" -r",
     "prettify": "prettier --ignore-path .gitignore -w .",
     "setup": "ts-node -r dotenv/config setup.ts",
