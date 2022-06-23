@@ -9,5 +9,8 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [require('tailwindcss-debug-screens')],
+  plugins:
+    process.env.NODE_ENV === 'production'
+      ? []
+      : [require('tailwindcss-debug-screens')],
 }
