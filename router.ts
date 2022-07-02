@@ -29,4 +29,13 @@ router.get('/', (req, res) =>
   })
 )
 
+router.get('/report', async (req, res, next) => {
+  try {
+    const all = await difficulty.find({}).lean()
+    res.json({ all })
+  } catch (error) {
+    return next(error)
+  }
+})
+
 export default router

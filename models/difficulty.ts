@@ -16,4 +16,4 @@ const difficultySchema = new Schema<IDifficulty>(
   }
 )
 
-export default model<IDifficulty>('Difficulty', difficultySchema)
+export default model<IDifficulty>('difficulty', difficultySchema)
